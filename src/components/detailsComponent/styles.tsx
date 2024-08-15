@@ -8,6 +8,7 @@ export const MainBox = styled(Box)(({theme}) => ({
     flexGrow: '1',
     padding: '24px',
     backgroundColor: '#F2F2F2',
+    overflow: 'hidden',
 
     '& > *': {
         padding: theme.spacing('4px'), // Используйте значение, которое вам нужно

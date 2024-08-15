@@ -23,15 +23,16 @@ const DetailsComponent = () => {
                     Выберите репозиторий
                 </EmptyBox>
                 : <>
-                    <Typography>{data.name}</Typography>
+                    <Typography sx={{fontSize: '30px', fontWeight: 600}}>{data.name}</Typography>
                     <WrapperBox>
-                        <Chip label={data.language} color="primary"/>
+                        <Chip label={data.language ? data.language : 'Язык не указан'} color="primary"/>
                         <Box sx={{display: 'flex', alignItems: 'center'}}>
                             <StarIcon sx={{color: '#FFB400', paddingRight: '5px'}}/> {data.stargazers_count}
                         </Box>
                     </WrapperBox>
-                    <Typography>{`Description: ${data.description}`}</Typography>
-                    <Typography>{`License: ${data.license ? data.license : 'No licsense'}`}</Typography>
+                    <Typography sx={{paddingTop: '20px'}}>{`Описание: ${data.description ? data.description : 'Нет' +
+                        ' описания' }`}</Typography>
+                    <Typography sx={{paddingTop: '10px'}}>{`Лицензия: ${data.license ? data.license : 'Нет лицензии'}`}</Typography>
                 </>}
         </MainBox>
     );
