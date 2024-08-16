@@ -1,4 +1,4 @@
-//get string format 'DD.MM.YYYY'
+//get string in format 'DD.MM.YYYY'
 export const formatDate = (dateString: string): string => {
     const date = new Date(dateString);
     const day = date.getDate().toString().padStart(2, '0');

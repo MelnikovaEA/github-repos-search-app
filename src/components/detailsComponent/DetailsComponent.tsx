@@ -1,25 +1,22 @@
 import * as React from 'react';
 import {Typography, Chip, Box} from "@mui/material";
-import {MainBox, WrapperBox} from "./styles.tsx";
+import {MainBox, WrapperBox, EmptyBox} from "./styles.tsx";
 import StarIcon from '@mui/icons-material/Star';
-import {styled} from "@mui/system";
 import {useSelector} from "react-redux";
-import {DetailsItem} from "../../types";
+import {DetailsItem, Repo} from "../../types";
 import {RootState} from "../../store.ts";
-
-const EmptyBox = styled(Box)(({theme}) => ({
-    height: '100%',
-    display: 'grid',
-    placeItems: 'center',
-}))
 
 const DetailsComponent = () => {
 
     const data: DetailsItem = useSelector((state: RootState) => state.details.item);
+    const repos: Repo[] = useSelector((state: RootState) => state.repos.list);
 
     return (
         <MainBox>
-            {!data ? <EmptyBox>
+            {repos.length === 0 ? (
+                <EmptyBox/>
+            ) : !data
+                ? <EmptyBox>
                     Выберите репозиторий
                 </EmptyBox>
                 : <>
@@ -31,8 +28,9 @@ const DetailsComponent = () => {
                         </Box>
                     </WrapperBox>
                     <Typography sx={{paddingTop: '20px'}}>{`Описание: ${data.description ? data.description : 'Нет' +
-                        ' описания' }`}</Typography>
-                    <Typography sx={{paddingTop: '10px'}}>{`Лицензия: ${data.license ? data.license : 'Нет лицензии'}`}</Typography>
+                        ' описания'}`}</Typography>
+                    <Typography
+                        sx={{paddingTop: '10px'}}>{`Лицензия: ${data.license ? data.license : 'Нет лицензии'}`}</Typography>
                 </>}
         </MainBox>
     );

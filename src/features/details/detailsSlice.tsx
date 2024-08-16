@@ -1,13 +1,11 @@
 import {createSlice, PayloadAction} from "@reduxjs/toolkit";
 import {DetailsItem} from "../../types";
 
-export type DetailsSlice = {
-    //error: string | null,
+type DetailsSlice = {
     item: DetailsItem | null
 }
 
 const initialState: DetailsSlice = {
-    //error: null,
    item: null,
 }
 

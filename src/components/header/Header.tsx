@@ -22,6 +22,11 @@ const Header = () => {
         navigate('/results', {});
     };
 
+    const handleKeyDown = (event: React.KeyboardEvent<HTMLInputElement>) => {
+        if (event.key === 'Enter') {
+            handleClick();
+        }
+    };
 
     return (
         <CustomAppBar>
@@ -34,10 +39,11 @@ const Header = () => {
                         size="small"
                         value={data}
                         onChange={handleSearchChange}
+                        onKeyDown={handleKeyDown}
                     />
                     <CustomButton
                         variant="contained"
-                        size='small'
+                        size="small"
                         onClick={() => handleClick()}
                     >искать</CustomButton>
                 </CustomToolbar>

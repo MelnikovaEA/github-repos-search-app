@@ -6,6 +6,7 @@ import App from './App.tsx';
 import {store} from "./store.ts";
 import HomePage from "./components/homePage/HomePage.tsx";
 import ResultsPage from "./components/resultsPage/ResultsPage.tsx";
+import ErrorPage from "./components/errorPageWithSass/ErrorPage.tsx";
 
 const router = createBrowserRouter([
     {
@@ -19,7 +20,11 @@ const router = createBrowserRouter([
             {
                 path: "/results",
                 element: <ResultsPage/>,
-            }
+            },
+            {
+                path: "/error",
+                element: <ErrorPage/>,
+            },
         ]
     }
 ]);

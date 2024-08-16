@@ -2,8 +2,9 @@ import axios from "axios";
 import {createAsyncThunk} from "@reduxjs/toolkit";
 import {Repo} from "../../types";
 
+// function for receiving data from Github
 export const loadRepos = createAsyncThunk<
-    { data: Repo[] },
+    Repo[] ,
     string,
     { rejectValue: string }
 >(
@@ -13,7 +14,7 @@ export const loadRepos = createAsyncThunk<
             const request = `https://api.github.com/search/repositories?q=${searchData}&sort=stars&order=desc`
             const response = await axios.get(request);
 
-//get object type: Repo from response
+//get objects type: Repo[] from response
             const data = response.data.items.map((repo: any) => ({
                 id: repo.id,
                 name: repo.name,

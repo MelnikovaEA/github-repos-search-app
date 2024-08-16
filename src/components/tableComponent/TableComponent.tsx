@@ -33,6 +33,7 @@ type OrderDirections = {
     forks_count: 'asc' | 'desc',
     updated_at: 'asc' | 'desc',
 };
+
 type OrderBy = 'name' | 'stargazers_count' | 'forks_count' | 'updated_at';
 
 const TableComponent = () => {
@@ -206,7 +207,6 @@ const TableComponent = () => {
                 </>
             )}
             {status === 'received' && repos.length === 0 && <NotFoundComponent />}
-            {/*{status === 'rejected' && <NotFoundComponent />}*/}
         </CustomBox>
     );
 };

@@ -1,10 +1,11 @@
+//main type of object in App
 export type Repo = {
     "id": number,
     "name": string,
     "description": string | null,
-    "updated_at": string, //  "2024-08-02T20:29:59Z",
+    "updated_at": string,
     "stargazers_count": number,
-    "language": string,
+    "language": string | null,
     "forks_count": number,
     "license": string | null,
 }

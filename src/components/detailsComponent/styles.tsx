@@ -19,3 +19,9 @@ export const WrapperBox = styled(Box)(({theme}) => ({
     display: 'flex',
     justifyContent: 'space-between'
 }));
+
+export const EmptyBox = styled(Box)(({theme}) => ({
+    height: '100%',
+    display: 'grid',
+    placeItems: 'center',
+}))
