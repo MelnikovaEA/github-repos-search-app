@@ -1,7 +1,7 @@
 import {styled} from "@mui/system";
 import {Box} from "@mui/material";
 
-export const MainBox = styled(Box)(({theme}) => ({
+export const MainBox = styled(Box)(({theme}) =>({
     width: '30%',
     display: 'flex',
     flexDirection: 'column',
@@ -15,13 +15,13 @@ export const MainBox = styled(Box)(({theme}) => ({
     },
 }));
 
-export const WrapperBox = styled(Box)(({theme}) => ({
+export const WrapperBox = styled(Box)({
     display: 'flex',
     justifyContent: 'space-between'
-}));
+});
 
-export const EmptyBox = styled(Box)(({theme}) => ({
+export const EmptyBox = styled(Box)({
     height: '100%',
     display: 'grid',
     placeItems: 'center',
-}))
+});

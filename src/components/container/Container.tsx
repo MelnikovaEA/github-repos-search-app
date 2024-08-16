@@ -8,7 +8,7 @@ interface ContainerProps {
 
 export const AppContainer: React.FC<ContainerProps> = ({children}) => {
     return (
-        <Container maxWidth='1440px'>
+        <Container sx={{maxWidth: '1440px'}}>
             {children}
         </Container>
     );

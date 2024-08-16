@@ -1,21 +1,21 @@
 import {Button, TextField, AppBar, Toolbar} from "@mui/material";
 import {styled} from "@mui/system";
 
-export const CustomAppBar = styled(AppBar)(({theme}) => ({
+export const CustomAppBar = styled(AppBar)({
     position: 'static',
     backgroundColor: '#00838F',
     boxShadow: 'none',
-}));
+});
 
-export const CustomToolbar = styled(Toolbar)(({theme}) => ({
+export const CustomToolbar = styled(Toolbar)({
     display: 'flex',
     justifyContent: 'flex-start',
     alignItems: 'center',
     padding: '19px 0',
     boxSizing: 'border-box',
-}))
+});
 
-export const CustomTextField = styled(TextField)(({theme}) => ({
+export const CustomTextField = styled(TextField)({
     width: '912px',
     maxWidth: '912px',
     boxSizing: 'border-box',
@@ -38,9 +38,9 @@ export const CustomTextField = styled(TextField)(({theme}) => ({
     '& .MuiInputLabel-root.Mui-focused': {
         color: 'black',
     },
-}));
+});
 
-export const CustomButton = styled(Button)(({theme}) => ({
+export const CustomButton = styled(Button)({
     padding: '9px 22px',
     backgroundColor: '#2196F3'
-}));
+});

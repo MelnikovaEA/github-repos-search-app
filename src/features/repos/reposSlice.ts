@@ -14,12 +14,12 @@ const initialState: ReposSlice = {
     list: [],
 };
 
-const reposSlice = createSlice<ReposSlice>({
+const reposSlice = createSlice({
     name: 'repos',
     initialState,
     reducers: {
     },
-    extraReducers: builder => {
+    extraReducers: (builder) => {
         builder
             .addCase(loadRepos.pending, (state) => {
                 state.status = 'loading';

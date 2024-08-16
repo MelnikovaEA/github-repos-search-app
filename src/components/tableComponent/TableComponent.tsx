@@ -21,10 +21,10 @@ import {formatDate} from "../../features/formatUpdatetAtDate.ts";
 import {clearDetails, setDetails} from "../../features/details/detailsSlice.tsx";
 
 //style
-const CustomBox = styled(Box)(({theme}) => ({
+const CustomBox = styled(Box)({
     width: '70%',
     paddingTop: '10px',
-}))
+});
 
 //types
 type OrderDirections = {
@@ -56,7 +56,7 @@ const TableComponent = () => {
     const [sortedData, setSortedData] = React.useState<Repo[]>(repos);
 
     React.useEffect(() => {
-        const sortedArray = [...repos].sort((a, b) => {
+        const sortedArray = [...repos].sort((a, b): any => {
             if (orderBy === 'name') {
                 return orderDirections.name === 'asc' ? a.name.localeCompare(b.name) : b.name.localeCompare(a.name);
             } else if (orderBy === 'stargazers_count') {
@@ -83,9 +83,9 @@ const TableComponent = () => {
     const [page, setPage] = useState(0);
     const [rowsPerPage, setRowsPerPage] = useState(10);
 
-    const handleChangePage = (event: unknown, newPage: number) => {
+    const handleChangePage = (newPage: number) => {
         setPage(newPage);
-        dispatch(dispatch(clearDetails))
+        dispatch(clearDetails());
     };
 
     const handleChangeRowsPerPage = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -96,8 +96,8 @@ const TableComponent = () => {
     const paginatedRows = sortedData.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage);
 
     //table row clickHandler
-    const onItemClick = (event: React.MouseEvent<HTMLTableRowElement>, id: number) => {
-        const currItem: Repo = repos.find(item => item.id === id);
+    const onItemClick = (id: number) => {
+        const currItem = repos.find(item => item.id === id);
         if (currItem) { // Проверка на наличие currItem
             dispatch(setDetails({
                 name: currItem.name,
@@ -113,10 +113,10 @@ const TableComponent = () => {
     const renderData = (paginatedData: Repo[]): React.ReactNode => {
         return paginatedData.map((repo) => (
             <TableRow
-                key={repo.id}
-                id={repo.id}
+                key={repo.id.toString()}
+                id={repo.id.toString()}
                 sx={{'&:last-child td, &:last-child th': {border: 0}, cursor: 'pointer'}}
-                onClick={(event) => onItemClick(event, repo.id)}
+                onClick={() => onItemClick(repo.id)}
             >
                 <TableCell component='th' scope='row'>
                     {repo.name}
@@ -200,7 +200,7 @@ const TableComponent = () => {
                             count={repos.length}
                             rowsPerPage={rowsPerPage}
                             page={page}
-                            onPageChange={handleChangePage}
+                            onPageChange={( _, newPage) => handleChangePage(newPage)}
                             onRowsPerPageChange={handleChangeRowsPerPage}
                         />
                     </Paper>

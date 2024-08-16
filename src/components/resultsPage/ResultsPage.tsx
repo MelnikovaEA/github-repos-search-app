@@ -1,4 +1,3 @@
-import * as React from 'react';
 import TableComponent from "../tableComponent/TableComponent.tsx";
 import DetailsComponent from "../detailsComponent/DetailsComponent.tsx";
 import {styled} from "@mui/system";
@@ -9,10 +8,10 @@ import {RootState, useAppDispatch} from "../../store.ts";
 import {useNavigate} from "react-router-dom";
 import {setSearch} from "../../features/search/searchSlice.ts";
 
-const CustomResultPage = styled(Box)(({theme}) => ({
+const CustomResultPage = styled(Box)({
     display: 'flex',
     height: '100%',
-}))
+});
 
 const ResultsPage = () => {
 

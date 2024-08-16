@@ -1,4 +1,3 @@
-import * as React from 'react';
 import {CustomBox} from "./styles.tsx";
 import {useAppDispatch} from "../../store.ts";
 import {useEffect} from "react";

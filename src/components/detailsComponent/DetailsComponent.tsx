@@ -1,15 +1,13 @@
-import * as React from 'react';
 import {Typography, Chip, Box} from "@mui/material";
 import {MainBox, WrapperBox, EmptyBox} from "./styles.tsx";
 import StarIcon from '@mui/icons-material/Star';
 import {useSelector} from "react-redux";
-import {DetailsItem, Repo} from "../../types";
 import {RootState} from "../../store.ts";
 
 const DetailsComponent = () => {
 
-    const data: DetailsItem = useSelector((state: RootState) => state.details.item);
-    const repos: Repo[] = useSelector((state: RootState) => state.repos.list);
+    const data = useSelector((state: RootState) => state.details.item);
+    const repos = useSelector((state: RootState) => state.repos.list);
 
     return (
         <MainBox>
